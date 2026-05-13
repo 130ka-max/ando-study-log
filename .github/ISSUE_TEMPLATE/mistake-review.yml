@@ -1,0 +1,50 @@
+name: 間違いレビュー
+description: 間違えた問題を分析して再発防止する
+title: "[間違い] "
+labels: ["status:ready", "type:mistake", "needs:review", "portfolio:show"]
+body:
+  - type: input
+    id: subject
+    attributes:
+      label: 教科
+      placeholder: 数学
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 問題
+      description: 問題文または概要を書く
+    validations:
+      required: true
+  - type: textarea
+    id: my_answer
+    attributes:
+      label: 自分の解答
+      description: 間違えた解答、途中式、考え方を書く
+    validations:
+      required: true
+  - type: textarea
+    id: correct_answer
+    attributes:
+      label: 正解・解説
+      description: わかっている場合だけ書く
+    validations:
+      required: false
+  - type: textarea
+    id: why_wrong
+    attributes:
+      label: 自分ではなぜ間違えたと思うか
+    validations:
+      required: true
+  - type: textarea
+    id: review_goal
+    attributes:
+      label: レビューで明らかにしたいこと
+      value: |
+        - どこまでは正しかったか
+        - どこでずれたか
+        - 次に同じミスを防ぐには何を見るか
+        - 復習用の類題
+    validations:
+      required: true

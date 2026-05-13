@@ -1,0 +1,172 @@
+[
+  {
+    "name": "subject:math",
+    "description": "数学の学習です",
+    "color": "1f77b4"
+  },
+  {
+    "name": "subject:english",
+    "description": "英語の学習です",
+    "color": "1f77b4"
+  },
+  {
+    "name": "subject:japanese",
+    "description": "国語の学習です",
+    "color": "1f77b4"
+  },
+  {
+    "name": "subject:science",
+    "description": "理科の学習です",
+    "color": "1f77b4"
+  },
+  {
+    "name": "subject:social",
+    "description": "社会の学習です",
+    "color": "1f77b4"
+  },
+  {
+    "name": "subject:programming",
+    "description": "プログラミングの学習です",
+    "color": "1f77b4"
+  },
+  {
+    "name": "type:concept",
+    "description": "言葉や仕組みの意味を理解する学習です",
+    "color": "5319e7"
+  },
+  {
+    "name": "type:practice",
+    "description": "問題を解いて練習する学習です",
+    "color": "5319e7"
+  },
+  {
+    "name": "type:mistake",
+    "description": "間違えた理由を整理する学習です",
+    "color": "d73a4a"
+  },
+  {
+    "name": "type:review",
+    "description": "前に学んだことをもう一度確認する学習です",
+    "color": "5319e7"
+  },
+  {
+    "name": "type:test-prep",
+    "description": "テストに向けて確認する学習です",
+    "color": "5319e7"
+  },
+  {
+    "name": "type:writing",
+    "description": "文章、作文、レポートを書く学習です",
+    "color": "5319e7"
+  },
+  {
+    "name": "type:question",
+    "description": "疑問や確かめたいことを出した学習です",
+    "color": "5319e7"
+  },
+  {
+    "name": "status:ready",
+    "description": "すぐに学習を始められる状態です",
+    "color": "0e8a16"
+  },
+  {
+    "name": "status:blocked",
+    "description": "何がわからないかを先に整理する状態です",
+    "color": "b60205"
+  },
+  {
+    "name": "status:reviewing",
+    "description": "答えや考え方を見直している状態です",
+    "color": "fbca04"
+  },
+  {
+    "name": "status:done",
+    "description": "この学習は終わった状態です",
+    "color": "cfd3d7"
+  },
+  {
+    "name": "portfolio:show",
+    "description": "Webの学習レポートに載せます",
+    "color": "0b6b75"
+  },
+  {
+    "name": "portfolio:hide",
+    "description": "Webの学習レポートには載せません",
+    "color": "6e7781"
+  },
+  {
+    "name": "needs:hint",
+    "description": "まずヒントがほしい状態です",
+    "color": "d4c5f9"
+  },
+  {
+    "name": "needs:explanation",
+    "description": "順番に説明してほしい状態です",
+    "color": "d4c5f9"
+  },
+  {
+    "name": "needs:practice",
+    "description": "似た問題で練習したい状態です",
+    "color": "d4c5f9"
+  },
+  {
+    "name": "needs:review",
+    "description": "自分の答えを添削してほしい状態です",
+    "color": "d4c5f9"
+  },
+  {
+    "name": "needs:memorization",
+    "description": "覚えて定着させたい状態です",
+    "color": "d4c5f9"
+  },
+  {
+    "name": "needs:teacher-check",
+    "description": "先生や保護者にも確認してほしい状態です",
+    "color": "d4c5f9"
+  },
+  {
+    "name": "difficulty:easy",
+    "description": "基礎から確認する内容です",
+    "color": "c2e0c6"
+  },
+  {
+    "name": "difficulty:medium",
+    "description": "標準的な難しさの内容です",
+    "color": "fef2c0"
+  },
+  {
+    "name": "difficulty:hard",
+    "description": "応用や発展に近い内容です",
+    "color": "f9d0c4"
+  },
+  {
+    "name": "risk:answer-spoiler",
+    "description": "すぐ答えを見ると考える練習になりにくい内容です",
+    "color": "e99695"
+  },
+  {
+    "name": "risk:exam",
+    "description": "テストや成績に関係する大事な内容です",
+    "color": "e99695"
+  },
+  {
+    "name": "risk:needs-human-teacher",
+    "description": "AIだけで決めず先生や保護者にも確認する内容です",
+    "color": "e99695"
+  },
+  {
+    "name": "close:on-understood",
+    "description": "自分の言葉で説明できたら閉じます",
+    "color": "c5def5"
+  },
+  {
+    "name": "close:on-reviewed",
+    "description": "添削と振り返りが終わったら閉じます",
+    "color": "c5def5"
+  },
+  {
+    "name": "close:on-practice",
+    "description": "類題で確認できたら閉じます",
+    "color": "c5def5"
+  }
+]

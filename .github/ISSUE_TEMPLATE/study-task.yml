@@ -1,0 +1,73 @@
+name: 学習課題
+description: 新しく理解したいテーマや演習課題を作成する
+title: "[学習] "
+labels: ["status:ready", "type:concept", "portfolio:show"]
+body:
+  - type: input
+    id: subject
+    attributes:
+      label: 教科
+      description: 数学、英語、国語、理科、社会など
+      placeholder: 数学
+    validations:
+      required: true
+  - type: input
+    id: topic
+    attributes:
+      label: 学習テーマ
+      placeholder: 一次関数の文章題
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: 目的
+      description: このIssueで何ができるようになりたいか
+      placeholder: 文章から一次関数の式を立てられるようにする
+    validations:
+      required: true
+  - type: textarea
+    id: current_understanding
+    attributes:
+      label: 現在の理解
+      description: 今わかっていることを書く
+    validations:
+      required: true
+  - type: textarea
+    id: blockers
+    attributes:
+      label: わからないこと
+      description: どこで詰まっているかを書く
+    validations:
+      required: true
+  - type: textarea
+    id: own_attempt
+    attributes:
+      label: まず自分で考えたこと
+      description: 途中式、仮説、メモを書く
+    validations:
+      required: true
+  - type: dropdown
+    id: codex_mode
+    attributes:
+      label: Codexにしてほしいこと
+      options:
+        - ヒントモード
+        - 添削モード
+        - 解説モード
+        - 類題モード
+        - 振り返りモード
+        - テストモード
+    validations:
+      required: true
+  - type: textarea
+    id: done
+    attributes:
+      label: 完了条件
+      value: |
+        - [ ] 自分の言葉で説明できる
+        - [ ] 類題または確認問題を1問以上解いた
+        - [ ] 間違いの原因を記録した
+        - [ ] 次回復習する内容を決めた
+    validations:
+      required: true

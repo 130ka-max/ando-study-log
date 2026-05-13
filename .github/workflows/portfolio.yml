@@ -1,0 +1,105 @@
+name: Portfolio
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: "Optional Issue number for the latest thinking-depth report"
+        required: false
+        type: string
+  issues:
+    types:
+      - closed
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+permissions:
+  contents: read
+  issues: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build-portfolio:
+    name: Build portfolio
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build portfolio
+        run: npm run build:portfolio
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Resolve thinking-depth issue
+        id: report
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "issues" ]]; then
+            echo "issue_number=${{ github.event.issue.number }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "issue_number=${{ github.event.inputs.issue_number }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build thinking-depth report
+        if: ${{ steps.report.outputs.issue_number != '' }}
+        run: |
+          if ! [[ "$ISSUE_NUMBER" =~ ^[0-9]+$ ]]; then
+            echo "issue_number must be numeric: $ISSUE_NUMBER" >&2
+            exit 1
+          fi
+          npm run harness:end-report -- --issue "$ISSUE_NUMBER" --out "public/thinking-depth/issue-${ISSUE_NUMBER}.html" --markdown-out "public/thinking-depth/issue-${ISSUE_NUMBER}.md"
+          cp "public/thinking-depth/issue-${ISSUE_NUMBER}.html" "public/thinking-depth.html"
+          cp "public/thinking-depth/issue-${ISSUE_NUMBER}.md" "public/thinking-depth.md"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_NUMBER: ${{ steps.report.outputs.issue_number }}
+
+      - name: Upload Markdown fallback artifact
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-markdown
+          path: |
+            public/portfolio.md
+            public/thinking-depth.md
+            public/thinking-depth/*.md
+          if-no-files-found: warn
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: public
+
+  deploy:
+    name: Deploy portfolio
+    runs-on: ubuntu-latest
+    needs: build-portfolio
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

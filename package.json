@@ -1,0 +1,17 @@
+{
+  "name": "codex-study-harness",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:portfolio": "node scripts/build-portfolio.mjs",
+    "build:thinking-depth": "node scripts/build-thinking-depth-html.mjs",
+    "harness:end-report": "node scripts/build-thinking-depth-html.mjs",
+    "check": "node scripts/check-learning-harness.mjs",
+    "sync-labels": "node scripts/sync-labels.mjs"
+  },
+  "devDependencies": {
+    "yaml": "^2.8.1"
+  }
+}
